@@ -1,4 +1,4 @@
-// Bayesian analysis using Pocock's method with piecewise constant baseline hazard
+// Bayesian analysis in "Optimizing Interim Analysis Timing for Bayesian Adaptive Commensurate Designs"
 data {
   int<lower=1> N;    // rows of data
   vector[N]  Y;       // data
