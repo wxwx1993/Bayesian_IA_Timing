@@ -1,4 +1,4 @@
-# Bayesian_IA_Timing
+# optimIA
 The R Package for the manuscript "Optimizing Interim Analysis Timing for Bayesian Adaptive Commensurate Designs". (https://arxiv.org/abs/1905.07456). An innovative Bayesian adaptive commensurate design that borrows adaptively from 
 historical information and also uses a payoff function to optimize the timing of the study’s interim analysis.
 
