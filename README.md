@@ -1,6 +1,6 @@
 # optimIA
 ## The R Package for the manuscript "Optimizing Interim Analysis Timing for Bayesian Adaptive Commensurate Designs". 
-An innovative Bayesian adaptive commensurate design that is particularly useful for rare disease trails since it has the capability to borrow adaptively from historical information and also uses a payoff function to optimize the timing of the study’s interim analysis. (https://arxiv.org/abs/1905.07456).
+An innovative Bayesian adaptive commensurate design that is particularly useful for rare disease trials since it has the capability to borrow adaptively from historical information and also uses a payoff function to optimize the timing of the study’s interim analysis. (https://arxiv.org/abs/1905.07456).
 
 ## Installation
 ```r
