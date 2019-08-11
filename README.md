@@ -1,5 +1,6 @@
 # Bayesian_IA_Timing
-Code for "Optimizing Interim Analysis Timing for Bayesian Adaptive Commensurate Designs". A innovative Bayesian adaptive commensurate designs that borrows adaptively from historical information and also uses a payoff function to optimize the timing of the study’s interim analysis.
+The R Package for the manuscript "Optimizing Interim Analysis Timing for Bayesian Adaptive Commensurate Designs". (https://arxiv.org/abs/1905.07456). An innovative Bayesian adaptive commensurate design that borrows adaptively from 
+historical information and also uses a payoff function to optimize the timing of the study’s interim analysis.
 
 Code: 
 
@@ -9,4 +10,8 @@ commensurate.stan & commensurate_noborrow.stan is to conduct essential Bayesian 
 
 Data:
 
-adult.RData is the fix (hypothetical) historical adult data used for analysis.
+adult is the fixed 50 sample size (hypothetical) historical adult data with balanced arms used for analysis.
+adult20 is the fixed 20 sample size (hypothetical) historical adult data with balanced arms used for analysis.
+adult100 is the fixed 100 sample size (hypothetical) historical adult data with balanced arms used for analysis.
+
+
