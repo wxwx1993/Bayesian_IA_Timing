@@ -25,6 +25,7 @@ optimIA(historical=adult,
         type1_level=0.05,  
         sim_sd=25, 
         niter=5000, 
+        nrep=5000, 
         mc.cores=6)
 ```
         
