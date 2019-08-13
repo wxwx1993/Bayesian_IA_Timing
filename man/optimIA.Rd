@@ -6,7 +6,7 @@
 \usage{
 optimIA(historical, w = 0.5, IA_num, N, p_l, p_0, p_u, delta_0, delta_1,
   delta_design, delta_min, type1_level = 0.05, sim_sd, niter = 5000,
-  mc.cores = 6)
+  nrep = 5000, mc.cores = 6)
 }
 \arguments{
 \item{historical}{The historical (adult) data used for borrowing information under commensurate designs.}
@@ -39,6 +39,8 @@ that the novel treatment arm is better than the control arm to declare the trial
 \item{sim_sd}{The expected standard deviation under a selected design prior.}
 
 \item{niter}{The number of interations for the Bayesian design MCMC steps, default 5000.}
+
+\item{nrep}{The number of repeated calibration for the type I errors and powers calculation, default 5000.}
 
 \item{mc.cores}{The number of computing cores used, default 6}
 }

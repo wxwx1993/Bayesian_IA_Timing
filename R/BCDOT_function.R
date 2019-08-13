@@ -19,6 +19,7 @@
 #' @param type1_level The targeted level for the calibrated Type I error, default 0.05.
 #' @param sim_sd The expected standard deviation under a selected design prior.
 #' @param niter The number of interations for the Bayesian design MCMC steps, default 5000.
+#' @param nrep The number of repeated calibration for the type I errors and powers calculation, default 5000.
 #' @param mc.cores The number of computing cores used, default 6
 #' @return The function returns a list contains:
 #'
@@ -47,6 +48,7 @@ optimIA <-function(historical,
                    type1_level=0.05,
                    sim_sd,
                    niter=5000,
+                   nrep=5000,
                    mc.cores=6){
 
 
@@ -55,11 +57,11 @@ optimIA <-function(historical,
                               p_0=p_0,
                               p_u=p_u){
     #p_u up type I down, p_l type I down, p_0 up type I down
-    TypeI<-mcmapply(function(i){finalrun(sample=i,p_u=p_u,p_l=p_l,p_0=p_0,delta=delta_0,delta_min=delta_min,m=m_IA,N=N,payoff=FALSE,sim_sd=sim_sd, historical=historical,niter=niter)},1:5000,mc.cores = mc.cores)
+    TypeI<-mcmapply(function(i){finalrun(sample=i,p_u=p_u,p_l=p_l,p_0=p_0,delta=delta_0,delta_min=delta_min,m=m_IA,N=N,payoff=FALSE,sim_sd=sim_sd, historical=historical,niter=niter)},1:nrep,mc.cores = mc.cores)
 
-    Power<-mcmapply(function(i){finalrun(sample=i,p_u=p_u,p_l=p_l,p_0=p_0,delta=delta_1,delta_min=delta_min,m=m_IA,N=N,payoff=FALSE,sim_sd=sim_sd, historical=historical,niter=niter)},1:5000,mc.cores = mc.cores)
+    Power<-mcmapply(function(i){finalrun(sample=i,p_u=p_u,p_l=p_l,p_0=p_0,delta=delta_1,delta_min=delta_min,m=m_IA,N=N,payoff=FALSE,sim_sd=sim_sd, historical=historical,niter=niter)},1:nrep,mc.cores = mc.cores)
 
-    Payoff1<-mcmapply(function(i){finalrun(sample=i,p_u=p_u,p_l=p_l,p_0=p_0,delta=delta_design,delta_min=delta_min,m=m_IA,N=N,payoff=TRUE,sim_sd=sim_sd, historical=historical,niter=niter)},1:5000,mc.cores = mc.cores)
+    Payoff1<-mcmapply(function(i){finalrun(sample=i,p_u=p_u,p_l=p_l,p_0=p_0,delta=delta_design,delta_min=delta_min,m=m_IA,N=N,payoff=TRUE,sim_sd=sim_sd, historical=historical,niter=niter)},1:nrep,mc.cores = mc.cores)
 
     ##############PP1 and PP2 only related to p_u and p_l
     PP1 = mean(TypeI[3,]) ###########IA claim futility under H0
@@ -185,12 +187,12 @@ finalrun<-function(historical,
                    sim_sd,
                    niter){
   if (payoff){
-    design_data<-designgen(historical, sample,N, delta, m,sim_sd = sim_sd)
+    design_data<-designgen(historical=adult, sample,N, delta=delta, m,sim_sd = sim_sd)
     IAonly<-design_data[[1]]
     IAcomb<-design_data[[3]]
     allcomb<-design_data[[4]]
   }else{
-    dat_data<-datgen(historical, sample,N, delta, m, sim_sd = sim_sd)
+    dat_data<-datgen(historical, sample,N, delta=delta, m, sim_sd = sim_sd)
     IAonly<-dat_data[[1]]
     IAcomb<-dat_data[[3]]
     allcomb<-dat_data[[4]]

@@ -13,7 +13,7 @@
 #' @import scales
 #'
 #' @references
-#' Stan Development Team (2019). RStan: the R interface to Stan. R package version 2.19.2. https://mc-stan.org
 #' Wu, X., Xu, Y., & Carlin, B. P. (2019). Optimizing Interim Analysis Timing for Bayesian Adaptive Commensurate Designs. arXiv preprint arXiv:1905.07456.
+#' Stan Development Team (2019). RStan: the R interface to Stan. R package version 2.19.2. https://mc-stan.org
 #'
 NULL
