@@ -39,4 +39,6 @@ adult is the fixed 50 sample size (hypothetical) historical adult data with bala
 adult20 is the fixed 20 sample size (hypothetical) historical adult data with balanced arms used for analysis.
 adult100 is the fixed 100 sample size (hypothetical) historical adult data with balanced arms used for analysis.
 
+## Reference
+Wu, X., Xu, Y. and Carlin, B.P., 2020. Optimizing interim analysis timing for Bayesian adaptive commensurate designs. Statistics in Medicine, 39(4), pp.424-437.
 
